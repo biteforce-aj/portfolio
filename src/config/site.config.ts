@@ -332,7 +332,7 @@ export const siteConfig: SiteConfig = {
     availability: "Available for freelance & full-time roles",
     availabilityShort: "Available for work",
     now: "building site-starter v1",
-    cvPath: "/cv/Joshua-Anderson-CV.pdf", // [Add the design & web development CV at public/cv/]
+    cvPath: "/cv/Joshua-Anderson-CV.pdf",
     // photo: { src: "/images/joshua.jpg", alt: "Portrait of Joshua Anderson", width: 1000, height: 1240 },
     linkedin: "https://www.linkedin.com/in/joshua-anderson-773844288",
     github: "https://github.com/biteforce-aj",
@@ -341,7 +341,7 @@ export const siteConfig: SiteConfig = {
   hero: {
     title: "Joshua Anderson",
     subtitle:
-      "I design and build bold, fast websites — from Figma to live. Backed by a Computer Science degree and two years of training AI.",
+      "I design and build bold, fast websites — from Figma to live. Backed by a Computer Science degree and training AI since 2023.",
     primaryCta: { label: "Need a website?", href: "/services" },
     secondaryCta: { label: "Hiring? See my work", href: "/work" },
     stack: ["Figma", "Next.js", "Vercel"],
@@ -375,7 +375,7 @@ export const siteConfig: SiteConfig = {
     about: {
       label: "About",
       quote: "I care about the details people feel but rarely notice.",
-      text: "I'm Joshua, a UI/UX designer and front-end developer with a Computer Science degree. I design in Figma and build with Next.js and Tailwind, so what clients approve is exactly what goes live. Two years of evaluating AI models for Turing, Mercor and micro1 taught me to look closely and sweat the small stuff.",
+      text: "I'm Joshua, a UI/UX designer and front-end developer with a Computer Science degree. I design in Figma and build with Next.js and Tailwind, so what clients approve is exactly what goes live. Evaluating AI models for Turing, Mercor and micro1 since 2023 has taught me to look closely and sweat the small stuff.",
       facts: [
         { label: "Education", value: "B.Sc. Computer Science, FUTO — Second Class Upper" },
         { label: "Experience", value: "Freelance design & development · Ecobank Nigeria IT · AI evaluation" },
@@ -573,7 +573,7 @@ export const siteConfig: SiteConfig = {
     skillsTitle: "Skills",
     story: [
       "I'm Joshua, a UI/UX designer and front-end developer based in Lagos. I studied Computer Science at the Federal University of Technology, Owerri, graduating with Second Class Upper in 2025. [How you got into design — 1–2 sentences.]",
-      "I design in Figma and build with Next.js and Tailwind, so what clients approve is what goes live. Before and alongside design work, I've spent two years training and evaluating AI models for teams including Turing (on an NVIDIA project), Mercor and micro1 — work that taught me to look closely, follow detail, and think about how people actually use what I build.",
+      "I design in Figma and build with Next.js and Tailwind, so what clients approve is what goes live. Before and alongside design work, I've been training and evaluating AI models since 2023 for teams including Turing (on an NVIDIA project), Mercor and micro1 — work that taught me to look closely, follow detail, and think about how people actually use what I build.",
       "[What you care about in your work — e.g. sites that load fast on mobile data, design that makes small organisations look as serious as they are.]",
     ],
   },
@@ -590,14 +590,14 @@ export const siteConfig: SiteConfig = {
       role: "AI Trainer & Evaluator (Contract)",
       org: "Turing (NVIDIA project), Mercor, micro1, Atlas Capture",
       location: "Remote",
-      period: "[confirm: start year] – 2026",
+      period: "2023 – 2026",
       points: ["1,000+ evaluation and annotation tasks.", "91% quality score on Atlas Capture."],
     },
     {
       role: "IT Support Intern",
       org: "Ecobank Nigeria",
       location: "Head Office, Lagos Island",
-      period: "[month year – month year] (4 months)",
+      period: "October 2024 – January 2025",
       points: [
         "Resolved hardware and software issues for staff, including Microsoft Teams and other office compliance apps.",
         "Installed and configured Windows.",
@@ -606,11 +606,11 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
-      role: "Virtual Assistant",
+      role: "Graphic Designer",
       org: "Silhouette Travels & Tours",
       location: "Remote",
-      period: "2022 – [confirm end]",
-      points: [],
+      period: "2022 – Present",
+      points: ["Flyers, social graphics and promotional materials."],
     },
   ],
 
@@ -643,7 +643,7 @@ export const siteConfig: SiteConfig = {
     emailSelected: "Email selected. Press Ctrl+C to copy.",
     copy: "Copy",
     copied: "Copied",
-    cvMissing: "CV download coming soon.", // [Remove once public/cv/Joshua-Anderson-CV.pdf exists]
+    cvMissing: "CV download coming soon.",
   },
 
   footer: {
