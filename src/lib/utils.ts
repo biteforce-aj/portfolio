@@ -3,7 +3,14 @@ import { extendTailwindMerge } from "tailwind-merge";
 
 // Teach tailwind-merge the custom tokens from tokens.css so e.g. `py-6` overrides `py-section`.
 const twMerge = extendTailwindMerge({
-  extend: { theme: { spacing: ["gutter", "section"], container: ["content", "prose"] } },
+  extend: {
+    theme: {
+      spacing: ["gutter", "section", "section-end"],
+      container: ["content", "prose"],
+      text: ["micro", "label", "lead", "title", "email", "row", "quote", "section", "display", "display-xl"],
+      radius: ["xs", "panel"],
+    },
+  },
 });
 
 /** Merge class names, letting later Tailwind classes win. */
