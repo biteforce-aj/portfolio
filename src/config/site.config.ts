@@ -55,133 +55,110 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   brand: {
-    name: "Fieldnote Studio",
-    tagline: "Thoughtful websites for small businesses",
-    logo: { src: "/images/logo.svg", alt: "Fieldnote Studio", width: 40, height: 40 },
+    name: "Joshua Anderson",
+    tagline: "UI/UX Designer & Front-End Developer",
+    logo: { src: "/images/logo.svg", alt: "Joshua Anderson", width: 40, height: 40 },
     favicon: "/favicon.ico",
   },
 
   nav: {
     links: [
-      { label: "Services", href: "#services" },
       { label: "Work", href: "#work" },
-      { label: "Testimonials", href: "#testimonials" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Services", href: "#services" },
+      { label: "About", href: "#about" },
       { label: "Contact", href: "#contact" },
     ],
-    cta: { label: "Book a call", href: "#contact" },
+    cta: { label: "Let's talk", href: "#contact" },
   },
 
   hero: {
-    eyebrow: "Design & development studio",
-    title: "A website that works as hard as you do",
+    eyebrow: "Available for freelance & full-time roles",
+    title: "Joshua Anderson",
     subtitle:
-      "We design and build fast, accessible websites that turn visitors into customers — without the agency overhead.",
-    primaryCta: { label: "Start a project", href: "#contact" },
-    secondaryCta: { label: "See our work", href: "#work" },
-    image: {
-      src: "/images/hero.webp",
-      alt: "Abstract composition of soft overlapping shapes",
-      width: 1600,
-      height: 1200,
-    },
+      "I design and build bold, fast websites — from Figma to live. Backed by a Computer Science degree and two years of training AI.",
+    primaryCta: { label: "Need a website?", href: "#services" },
+    secondaryCta: { label: "Hiring? See my work", href: "#work" },
   },
 
   features: {
-    title: "Everything you need to get online",
-    intro: "One small team handles strategy, design, build and launch, so nothing gets lost between handoffs.",
+    title: "Services",
+    intro: "Discover → Design (Figma) → Build → Launch & support.",
     items: [
-      { icon: "PenTool", title: "Brand-led design", text: "Layouts shaped around your brand, not a generic theme." },
-      { icon: "Gauge", title: "Fast by default", text: "Lean pages that load quickly on any connection." },
-      { icon: "Accessibility", title: "Accessible", text: "Readable, keyboard-friendly and built to WCAG AA." },
-      { icon: "Search", title: "Search-ready", text: "Clean metadata, sitemaps and structure from day one." },
-      { icon: "Smartphone", title: "Mobile-first", text: "Designed for the phone in your customer's hand." },
-      { icon: "LifeBuoy", title: "Ongoing support", text: "Updates and fixes whenever you need them." },
+      {
+        icon: "Globe",
+        title: "Website design & build",
+        text: "From Figma design to a fast, live, mobile-friendly site.",
+      },
+      {
+        icon: "PenTool",
+        title: "UI/UX design",
+        text: "App and website screens, prototypes and design systems in Figma.",
+      },
+      {
+        icon: "Zap",
+        title: "Website redesigns",
+        text: "Modernise an existing site without losing what works.",
+      },
+      {
+        icon: "Sparkles",
+        title: "Graphic design",
+        text: "Flyers, social media graphics and event materials.",
+      },
     ],
   },
 
   testimonials: {
-    title: "What clients say",
+    title: "Client words",
     items: [
       {
-        quote: "Our enquiries doubled in the first month. The new site finally feels like us.",
-        name: "Maya Okafor",
-        role: "Owner, Okafor Bakery",
-        avatar: { src: "/images/avatar-1.webp", alt: "Maya Okafor", width: 160, height: 160 },
-      },
-      {
-        quote: "Clear process, honest pricing and a site we can update ourselves. Couldn't ask for more.",
-        name: "Daniel Reyes",
-        role: "Director, Reyes Physio",
-        avatar: { src: "/images/avatar-2.webp", alt: "Daniel Reyes", width: 160, height: 160 },
-      },
-      {
-        quote: "They understood what we needed after one call and delivered ahead of schedule.",
-        name: "Priya Nair",
-        role: "Founder, Lumen Yoga",
-        avatar: { src: "/images/avatar-3.webp", alt: "Priya Nair", width: 160, height: 160 },
+        quote: "[Short quote from the W+Men Leading Change client]",
+        name: "[Client name]",
+        role: "W+Men Leading Change",
       },
     ],
   },
 
   faq: {
-    title: "Frequently asked questions",
+    title: "Questions",
     items: [
       {
-        question: "How long does a website take?",
-        answer: "Most small business sites launch in three to five weeks, depending on content and scope.",
+        question: "Where are you based?",
+        answer: "Lagos, Nigeria. I work remotely on West Africa Time.",
       },
       {
-        question: "Can I edit the content myself?",
-        answer: "Yes. We set things up so you can change text, images and contact details without a developer.",
-      },
-      {
-        question: "Do you handle hosting and domains?",
-        answer: "We deploy to fast global hosting and can connect your existing domain or help you register one.",
-      },
-      {
-        question: "What does it cost?",
-        answer: "Projects start from a fixed price agreed upfront. We'll give you a clear quote after a free call.",
+        question: "What do you build with?",
+        answer: "I design in Figma and build with Next.js, TypeScript and Tailwind CSS, deployed on Vercel.",
       },
     ],
   },
 
   stats: {
     items: [
-      { value: "120+", label: "Sites launched" },
-      { value: "98", label: "Average Lighthouse score" },
-      { value: "4 wks", label: "Typical turnaround" },
-      { value: "5.0", label: "Client rating" },
+      { value: "1,000+", label: "AI evaluation & annotation tasks" },
+      { value: "91%", label: "Quality score on Atlas Capture" },
+      { value: "2:1", label: "B.Sc. Computer Science, FUTO" },
+      { value: "2 yrs", label: "Training and evaluating AI" },
     ],
   },
 
   logos: {
-    title: "Trusted by local businesses",
-    items: [
-      { src: "/images/logo-1.svg", alt: "Orbit", width: 160, height: 48 },
-      { src: "/images/logo-2.svg", alt: "Blockwork", width: 160, height: 48 },
-      { src: "/images/logo-3.svg", alt: "Peak", width: 160, height: 48 },
-      { src: "/images/logo-4.svg", alt: "Harbor", width: 160, height: 48 },
-      { src: "/images/logo-5.svg", alt: "Twin", width: 160, height: 48 },
-    ],
+    title: "Previously",
+    items: [],
   },
 
   gallery: {
-    title: "Recent work",
+    title: "Graphic design",
     items: [
-      { src: "/images/gallery-1.webp", alt: "Project preview 1", width: 1200, height: 900 },
-      { src: "/images/gallery-2.webp", alt: "Project preview 2", width: 1200, height: 900 },
-      { src: "/images/gallery-3.webp", alt: "Project preview 3", width: 1200, height: 900 },
-      { src: "/images/gallery-4.webp", alt: "Project preview 4", width: 1200, height: 900 },
-      { src: "/images/gallery-5.webp", alt: "Project preview 5", width: 1200, height: 900 },
-      { src: "/images/gallery-6.webp", alt: "Project preview 6", width: 1200, height: 900 },
+      { src: "/images/gallery-1.webp", alt: "[Graphic design piece 1 — replace with export]", width: 1200, height: 900 },
+      { src: "/images/gallery-2.webp", alt: "[Graphic design piece 2 — replace with export]", width: 1200, height: 900 },
+      { src: "/images/gallery-3.webp", alt: "[Graphic design piece 3 — replace with export]", width: 1200, height: 900 },
     ],
   },
 
   cta: {
-    title: "Ready for a better website?",
-    text: "Tell us about your business and we'll reply within one working day.",
-    button: { label: "Get in touch", href: "#contact" },
+    title: "Let's build something considered.",
+    text: "Get a quote on WhatsApp or send a message through the form.",
+    button: { label: "Get a quote", href: "#contact" },
   },
 
   notFound: {
@@ -191,31 +168,25 @@ export const siteConfig: SiteConfig = {
   },
 
   contact: {
-    title: "Let's talk",
-    intro: "Send a message and we'll reply within one working day.",
-    email: "hello@example.com",
-    phone: "+1 (555) 014-2233",
-    whatsapp: "+15550142233",
-    address: "123 Example Street, Springfield",
-    hours: [
-      { days: "Mon – Fri", time: "9:00 – 17:30" },
-      { days: "Sat", time: "10:00 – 14:00" },
-    ],
+    title: "Contact",
+    intro: "Available for freelance & full-time roles.",
+    email: "joshuaanderson2004oct@gmail.com",
+    phone: "+234 906 167 4151",
+    whatsapp: "+2349061674151",
+    address: "Lagos, Nigeria · works remotely (West Africa Time)",
   },
 
   socials: [
-    { platform: "instagram", url: "https://instagram.com/" },
-    { platform: "linkedin", url: "https://linkedin.com/" },
-    { platform: "x", url: "https://x.com/" },
+    { platform: "linkedin", url: "https://www.linkedin.com/in/joshua-anderson-773844288" },
   ],
 
   seo: {
-    titleTemplate: "%s · Fieldnote Studio",
-    defaultTitle: "Fieldnote Studio — Thoughtful websites for small businesses",
+    titleTemplate: "%s · Joshua Anderson",
+    defaultTitle: "Joshua Anderson — UI/UX Designer & Front-End Developer",
     description:
-      "Fieldnote Studio designs and builds fast, accessible websites for small businesses.",
+      "Joshua Anderson is a UI/UX designer and front-end developer in Lagos who designs and builds bold, fast websites — from Figma to live.",
     ogImage: "/images/og.jpg",
-    siteUrl: "https://site-starter-eta.vercel.app",
-    locale: "en_US",
+    siteUrl: "http://localhost:3000", // [Set to the live domain once deployed]
+    locale: "en_NG",
   },
 };
