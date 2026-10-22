@@ -95,7 +95,17 @@ export interface SiteConfig {
   projects: Project[];
   /** Cursor bubble labels on the work index. */
   workCtas: { caseStudy: string; live: string; repo: string; soon: string; view: string };
-  work: { title: string; intro: string; filterLabel: string; allLabel: string; filters: ProjectTag[] };
+  work: {
+    title: string;
+    intro: string;
+    description: string;
+    filterLabel: string;
+    allLabel: string;
+    filters: ProjectTag[];
+    tagsLabel: string;
+    /** Live-region text after filtering; `{count}` and `{total}` are replaced. */
+    results: string;
+  };
   services: { title: string; text: string; icon: string; tags: string }[];
   process: { step: string; text?: string }[];
   quote: { title: string; button: Link; whatsappLabel: string; whatsappMessage: string; priceFrom?: string };
@@ -372,9 +382,13 @@ export const siteConfig: SiteConfig = {
   work: {
     title: "Work",
     intro: "Live, launching & in the lab.",
+    description:
+      "Web design and build, UI/UX, design systems and graphic design by Joshua Anderson — live, launching and in the lab.",
     filterLabel: "Filter projects",
     allLabel: "All",
     filters: ["Web", "UI/UX", "Graphic design", "System"],
+    tagsLabel: "Tags",
+    results: "Showing {count} of {total} projects",
   },
 
   services: [

@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useToast } from "@/components/ui/Toast";
-import { cn } from "@/lib/utils";
 import type { ProjectLink } from "@/lib/projects";
+import { canHover, useFollowPointer } from "@/lib/useFollowPointer";
+import { cn } from "@/lib/utils";
 
 export type WorkRow = {
   key: string;
@@ -36,11 +37,6 @@ export function WorkIndexList({ rows, soonMessage, soonCta, newTab }: WorkIndexL
   const [visible, setVisible] = useState(false);
   const previewRef = useRef<HTMLDivElement>(null);
   const bubbleRef = useRef<HTMLDivElement>(null);
-  const target = useRef({ x: 0, y: 0 });
-  const current = useRef({ x: 0, y: 0 });
-  const frame = useRef(0);
-
-  useEffect(() => () => cancelAnimationFrame(frame.current), []);
 
   // Scrolling moves the row out from under a still pointer without a pointerleave.
   useEffect(() => {
@@ -50,42 +46,24 @@ export function WorkIndexList({ rows, soonMessage, soonCta, newTab }: WorkIndexL
     return () => window.removeEventListener("scroll", hide);
   }, [visible]);
 
-  const place = () => {
-    const { x, y } = current.current;
+  const follow = useFollowPointer((x, y) => {
     previewRef.current?.style.setProperty("--x", `${x + 28}px`);
     previewRef.current?.style.setProperty("--y", `${y - 150}px`);
     bubbleRef.current?.style.setProperty("--x", `${x + 14}px`);
     bubbleRef.current?.style.setProperty("--y", `${y + 14}px`);
-  };
-
-  const loop = () => {
-    const ease = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : 0.18;
-    current.current.x += (target.current.x - current.current.x) * ease;
-    current.current.y += (target.current.y - current.current.y) * ease;
-    place();
-    frame.current = requestAnimationFrame(loop);
-  };
+  });
 
   const enter = (row: WorkRow) => (event: React.PointerEvent) => {
-    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    target.current = current.current = { x: event.clientX, y: event.clientY };
-    place();
+    if (!canHover()) return;
+    follow.start(event);
     setActive(row);
     setVisible(true);
-    if (!frame.current) loop();
-  };
-  const move = (event: React.PointerEvent) => {
-    target.current = { x: event.clientX, y: event.clientY };
   };
   const leaveRow = () => setVisible(false);
-  const leaveList = () => {
-    cancelAnimationFrame(frame.current);
-    frame.current = 0;
-  };
 
   return (
     <>
-      <ul onPointerLeave={leaveList} className="group/list border-b border-border">
+      <ul onPointerLeave={follow.stop} className="group/list border-b border-border">
         {rows.map((row) => {
           const cells = (
             <>
@@ -122,7 +100,7 @@ export function WorkIndexList({ rows, soonMessage, soonCta, newTab }: WorkIndexL
               )}
             </>
           );
-          const handlers = { onPointerEnter: enter(row), onPointerMove: move, onPointerLeave: leaveRow };
+          const handlers = { onPointerEnter: enter(row), onPointerMove: follow.move, onPointerLeave: leaveRow };
           const hoverShift = "tablet:hover:pl-[18px]";
 
           return (
@@ -175,7 +153,7 @@ export function WorkIndexList({ rows, soonMessage, soonCta, newTab }: WorkIndexL
         ref={bubbleRef}
         aria-hidden="true"
         className={cn(
-          "pointer-events-none fixed top-0 left-0 z-41 hidden rounded-full bg-primary px-3.5 py-2 font-mono text-micro tracking-wide whitespace-nowrap text-primary-foreground uppercase tablet:block",
+          "pointer-events-none fixed top-0 left-0 z-41 hidden rounded-full bg-primary px-3.5 py-2 font-mono text-micro tracking-wide whitespace-nowrap text-primary-foreground uppercase tablet:motion-safe:block",
           "[transform:translate3d(var(--x,0),var(--y,0),0)] transition-opacity duration-200",
           visible ? "opacity-100" : "opacity-0",
         )}

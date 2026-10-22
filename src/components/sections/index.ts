@@ -10,6 +10,7 @@ export { Gallery } from "./Gallery";
 export { Hero } from "./Hero";
 export { LogoStrip } from "./LogoStrip";
 export { Navbar } from "./Navbar";
+export { ProjectGrid } from "./ProjectGrid";
 export { ServiceList } from "./ServiceList";
 export { StatsRow } from "./StatsRow";
 export { StatusBar } from "./StatusBar";

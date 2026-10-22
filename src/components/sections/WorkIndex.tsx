@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Arrow, Button, Container, MockScreen, MonoLabel } from "@/components/ui";
+import { Arrow, Button, Container, MonoLabel, ProjectCover } from "@/components/ui";
 import { siteConfig, type Project, type SiteConfig } from "@/config/site.config";
 import { featuredProjects, pad, projectLink } from "@/lib/projects";
 import { WorkIndexList, type WorkRow } from "./WorkIndexList";
@@ -9,17 +8,6 @@ type WorkIndexProps = {
   projects?: Project[];
   id?: string;
 };
-
-function Preview({ project }: { project: Project }) {
-  if (project.cover) {
-    return (
-      <div className="relative aspect-[656/460]">
-        <Image src={project.cover.src} alt="" fill sizes="368px" className="object-cover" />
-      </div>
-    );
-  }
-  return project.preview ? <MockScreen screen={project.preview} /> : null;
-}
 
 /** Index-style list of featured work. Hovering a row dims the others and floats a preview. */
 export function WorkIndex({
@@ -34,7 +22,7 @@ export function WorkIndex({
     category: project.category,
     year: project.year,
     link: projectLink(project),
-    preview: <Preview project={project} />,
+    preview: <ProjectCover project={project} sizes="(min-width: 821px) 368px, 100vw" />,
     // Coming-soon covers are abstract, so they only float on hover; no inline copy on phones.
     inlinePreview: project.status !== "coming-soon",
   }));
