@@ -1,13 +1,17 @@
 import { Arrow, Button, Container, MonoLabel } from "@/components/ui";
-import { siteConfig, type SiteConfig } from "@/config/site.config";
+import { siteConfig, type Link, type SiteConfig } from "@/config/site.config";
 import { pad } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 
 type ServiceListProps = {
-  intro?: SiteConfig["home"]["services"];
+  intro?: { label: string; title: string; text: string; more?: Link };
   services?: SiteConfig["services"];
   id?: string;
   /** Hide the "more" link, e.g. on the Services page itself. */
   showMore?: boolean;
+  /** "h1" when the intro is the page title. */
+  as?: "h1" | "h2";
+  className?: string;
 };
 
 /** Sticky serif intro beside numbered service rows. */
@@ -16,15 +20,17 @@ export function ServiceList({
   services = siteConfig.services,
   id = "services",
   showMore = true,
+  as: Title = "h2",
+  className,
 }: ServiceListProps) {
   return (
-    <section id={id} className="scroll-mt-24 bg-surface pt-section pb-section-end">
+    <section id={id} className={cn("scroll-mt-24 bg-surface pt-section pb-section-end", className)}>
       <Container className="grid items-start gap-12 desktop:grid-cols-[420px_minmax(0,1fr)] desktop:gap-24">
         <div className="scroll-reveal desktop:sticky desktop:top-30">
           <MonoLabel as="p">{intro.label}</MonoLabel>
-          <h2 className="mt-3 max-w-[8em] font-serif text-section font-normal tracking-serif italic">{intro.title}</h2>
+          <Title className="mt-3 max-w-[8em] font-serif text-section font-normal tracking-serif italic">{intro.title}</Title>
           <p className="mt-5 max-w-[24em] text-lead text-muted">{intro.text}</p>
-          {showMore && (
+          {showMore && intro.more && (
             <Button href={intro.more.href} variant="outline" className="mt-8">
               {intro.more.label} <Arrow />
             </Button>

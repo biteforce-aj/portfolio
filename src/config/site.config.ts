@@ -121,9 +121,27 @@ export interface SiteConfig {
     next: string;
     sliderCaption: string;
   };
+  servicesPage: { label: string; title: string; text: string; description: string };
   services: { title: string; text: string; icon: string; tags: string }[];
+  processIntro: { label: string; title: string };
   process: { step: string; text?: string }[];
-  quote: { title: string; button: Link; whatsappLabel: string; whatsappMessage: string; priceFrom?: string };
+  quote: {
+    label: string;
+    title: string;
+    titleAccent: string;
+    text: string;
+    button: Link;
+    whatsappLabel: string;
+    whatsappMessage: string;
+    priceFrom?: string;
+  };
+  graphicDesign: {
+    title: string;
+    intro: string;
+    description: string;
+    /** Lightbox labels; `{alt}`, `{index}` and `{total}` are filled in. */
+    lightbox: { view: string; open: string; previous: string; next: string; close: string; counter: string };
+  };
   about: { title: string; story: string[] };
   experience: { role: string; org: string; location: string; period: string; points: string[] }[];
   education: { degree: string; school: string; year: string; detail: string }[];
@@ -216,12 +234,13 @@ export interface SiteConfig {
   };
 }
 
-// [Export the best 6–9 flyers and social graphics as PNG/JPG into public/images/graphics/]
-const graphics: ImageRef[] = [
-  { src: "/images/gallery-1.webp", alt: "[Graphic design piece 1 — replace with export]", width: 1200, height: 900 },
-  { src: "/images/gallery-2.webp", alt: "[Graphic design piece 2 — replace with export]", width: 1200, height: 900 },
-  { src: "/images/gallery-3.webp", alt: "[Graphic design piece 3 — replace with export]", width: 1200, height: 900 },
-];
+// [Export the best 6–9 flyers and social graphics as PNG/JPG into public/images/graphics/ — set each real width/height]
+const graphics: ImageRef[] = [1, 2, 3, 4, 5, 6].map((n) => ({
+  src: `/images/gallery-${n}.webp`,
+  alt: `[Graphic design piece ${n} — replace with export and describe it]`,
+  width: 1200,
+  height: 900,
+}));
 
 export const siteConfig: SiteConfig = {
   brand: {
@@ -421,6 +440,14 @@ export const siteConfig: SiteConfig = {
     sliderCaption: "Figma frame and live site — drag the divider to compare.",
   },
 
+  servicesPage: {
+    label: "Services",
+    title: "Design that goes live.",
+    text: "From a single flyer to a full website — designed in Figma and built with Next.js, so what you approve is what goes live.",
+    description:
+      "Website design and build, UI/UX design, website redesigns and graphic design by Joshua Anderson, a UI/UX designer and front-end developer in Lagos.",
+  },
+
   services: [
     {
       title: "Website design & build",
@@ -448,14 +475,34 @@ export const siteConfig: SiteConfig = {
     },
   ],
 
+  processIntro: { label: "How I work", title: "From brief to launch." },
+
+  // [Optional: one line under each step describing what happens]
   process: [{ step: "Discover" }, { step: "Design (Figma)" }, { step: "Build" }, { step: "Launch & support" }],
 
   quote: {
-    title: "Get a quote",
+    label: "Get a quote",
+    title: "Have a project",
+    titleAccent: "in mind",
+    text: "Tell me what you need and I'll reply with next steps and a quote.",
     button: { label: "Get a quote", href: "/contact" },
     whatsappLabel: "Chat on WhatsApp",
     whatsappMessage: "Hi Joshua, I'd like a quote for a website.",
     // priceFrom: "Projects from ₦[___]",
+  },
+
+  graphicDesign: {
+    title: "Graphic design",
+    intro: "Flyers & social graphics.",
+    description: "Flyers, social media graphics and event materials designed by Joshua Anderson in Illustrator, Photoshop and Canva.",
+    lightbox: {
+      view: "View",
+      open: "View larger: {alt}",
+      previous: "Previous image",
+      next: "Next image",
+      close: "Close",
+      counter: "{index} / {total}",
+    },
   },
 
   about: {

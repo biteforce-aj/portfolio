@@ -5,6 +5,8 @@ import { siteConfig } from "@/config/site.config";
 const routes = [
   { path: "/", priority: 1 },
   { path: "/work", priority: 0.9 },
+  { path: "/services", priority: 0.9 },
+  { path: "/graphic-design", priority: 0.7 },
   ...siteConfig.projects
     .filter((project) => project.hasCaseStudy && project.status !== "coming-soon")
     .map((project) => ({ path: `/work/${project.slug}`, priority: 0.8 })),
