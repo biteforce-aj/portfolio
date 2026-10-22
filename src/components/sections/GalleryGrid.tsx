@@ -8,7 +8,8 @@ import { pad } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
 type GalleryGridProps = {
-  items?: ImageRef[];
+  /** `title` is the short caption; falls back to `alt`. */
+  items?: (ImageRef & { title?: string })[];
   labels?: SiteConfig["graphicDesign"]["lightbox"];
   /** Accessible name for the lightbox dialog. */
   title?: string;
@@ -53,7 +54,7 @@ export function GalleryGrid({
                 data-cursor={labels.view}
                 onClick={(event) => open(index, event.currentTarget)}
                 className="group block w-full overflow-hidden rounded-panel border border-border bg-surface transition-colors hover:border-border-strong"
-                aria-label={fill(labels.open, { alt: item.alt })}
+                aria-label={fill(labels.open, { title: item.title ?? item.alt })}
               >
                 <Image
                   src={item.src}
@@ -101,7 +102,7 @@ export function GalleryGrid({
                 sizes="100vw"
                 className="min-h-0 w-auto max-w-full flex-1 rounded-md object-contain"
               />
-              <figcaption className="max-w-prose text-center text-sm text-muted">{image.alt}</figcaption>
+              <figcaption className="max-w-prose text-center text-sm text-muted">{image.title ?? image.alt}</figcaption>
             </figure>
           )}
 

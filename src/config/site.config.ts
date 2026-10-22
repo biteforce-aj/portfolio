@@ -2,6 +2,8 @@
 
 export type Link = { label: string; href: string };
 export type ImageRef = { src: string; alt: string; width: number; height: number };
+/** Gallery piece: `title` is the short caption, `alt` describes the image. */
+export type GraphicItem = ImageRef & { title: string };
 export type SocialPlatform = "instagram" | "facebook" | "x" | "linkedin" | "youtube" | "tiktok";
 
 export type ProjectStatus = "live" | "coming-soon" | "concept";
@@ -146,7 +148,7 @@ export interface SiteConfig {
   experience: { role: string; org: string; location: string; period: string; points: string[] }[];
   education: { degree: string; school: string; year: string; detail: string }[];
   skills: { group: string; items: string[] }[];
-  graphics: ImageRef[];
+  graphics: GraphicItem[];
   messages: {
     comingSoon: string;
     emailCopied: string;
@@ -234,13 +236,50 @@ export interface SiteConfig {
   };
 }
 
-// [Export the best 6–9 flyers and social graphics as PNG/JPG into public/images/graphics/ — set each real width/height]
-const graphics: ImageRef[] = [1, 2, 3, 4, 5, 6].map((n) => ({
-  src: `/images/gallery-${n}.webp`,
-  alt: `[Graphic design piece ${n} — replace with export and describe it]`,
-  width: 1200,
-  height: 900,
-}));
+const graphics: GraphicItem[] = [
+  {
+    src: "/images/graphics/daughters-of-zion.webp",
+    title: "Daughters of Zion Conference 2026",
+    alt: "Portrait event flyer in crimson and white for the Daughters of Zion Conference 2026, themed “Anointed for Purpose”, with framed photos of the host and guest minister above the dates and a free health talk, health check and skill empowerment offer.",
+    width: 1080,
+    height: 1350,
+  },
+  {
+    src: "/images/graphics/god-of-power.webp",
+    title: "God of Power",
+    alt: "Landscape church programme flyer with “God of Power” in tall white and gold condensed type over a blurred worship crowd, angled charcoal panels with gold outlines, and a three-day schedule from 29 November to 1 December 2024.",
+    width: 1600,
+    height: 1131,
+  },
+  {
+    src: "/images/graphics/christmas-gold.webp",
+    title: "Christmas greeting — black and gold",
+    alt: "Landscape Christmas card for Silhouette Travels on a black glittered background, with pine branches, gold baubles and a glowing fairy-light wreath beside “Merry Christmas” in gold script and a short holiday message.",
+    width: 1200,
+    height: 800,
+  },
+  {
+    src: "/images/graphics/new-year-2026.webp",
+    title: "Happy New Year 2026",
+    alt: "Portrait New Year card for Silhouette Travels in white, gold and silver, framed by balloons, ribbons and glitter, with “2026” in gold wire lettering above “Happy New Year” in brown script.",
+    width: 1024,
+    height: 1536,
+  },
+  {
+    src: "/images/graphics/eid-al-adha.webp",
+    title: "Eid al-Adha greeting",
+    alt: "Landscape Eid al-Adha card for Silhouette Travels in cream and olive, with hand-drawn hanging lanterns, crescent moons and a faint mosque silhouette behind a serif headline and a message thanking clients for their partnership.",
+    width: 1600,
+    height: 1135,
+  },
+  {
+    src: "/images/graphics/christmas-red.webp",
+    title: "Christmas greeting — red",
+    alt: "Landscape Christmas card for Silhouette Travels on a red background, bordered by pine branches, snowflake ornaments and green and red baubles, with “Merry Christmas” in white script and a contact strip above a white wave.",
+    width: 1200,
+    height: 800,
+  },
+];
 
 export const siteConfig: SiteConfig = {
   brand: {
@@ -497,7 +536,7 @@ export const siteConfig: SiteConfig = {
     description: "Flyers, social media graphics and event materials designed by Joshua Anderson in Illustrator, Photoshop and Canva.",
     lightbox: {
       view: "View",
-      open: "View larger: {alt}",
+      open: "View larger: {title}",
       previous: "Previous image",
       next: "Next image",
       close: "Close",
