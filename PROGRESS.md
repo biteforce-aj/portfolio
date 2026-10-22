@@ -4,13 +4,10 @@ Project: portfolio · Prompt file: kit/prompts/01-portfolio.md · Content: kit/p
 ## Done
 - Phases 1–2: plan approved (name hero, keep prototype microcopy, bubble on rows/cards, nav → routes); dark tokens (`primary` fills / `primary-text` AA text, mock colours), Geist / Instrument Serif / Geist Mono, all content in site.config.ts
 - Phase 3 Home: status bar, nav + portalled mobile menu, hero CompareSlider, work index previews, services, Portrait ("JA" until `person.photo`), contact band, toast
-- Phase 4 /work: ProjectFilter + ProjectCard (coming-soon = abstract cover + toast) + CursorBubble; lib/useFollowPointer
-- Phase 5 /work/[slug]: @next/mdx, src/mdx-components.tsx, sections/case-study blocks; W+Men MDX with [bracket] TODOs, client credit in header
+- Phase 4 /work: ProjectFilter + ProjectCard (coming-soon = abstract cover + toast) + CursorBubble · Phase 5 /work/[slug]: @next/mdx, src/mdx-components.tsx, sections/case-study blocks; W+Men MDX with [bracket] TODOs, client credit in header
 - Phase 6: /graphic-design (GalleryGrid masonry + <dialog> lightbox), /services (ServiceList h1, ProcessSteps, QuoteBand → WhatsApp + /contact)
-
 ## Next
 - Phase 7 — About + Contact + CV download (Get a quote links to /contact, which 404s until then)
-
 ## Known issues / decisions
 - Next 16 + Tailwind v4 + cacheComponents (`new Date()` needs `"use cache"`); new tokens go in cn()'s tailwind-merge config. Breakpoints `tablet` 821px / `desktop` 1101px
 - MockScreen scales via `--u` = 100cqw/656 and is server-only; pass it to client components as a node. Prefer `.scroll-reveal` over Reveal. Hidden browser pane pauses animations
