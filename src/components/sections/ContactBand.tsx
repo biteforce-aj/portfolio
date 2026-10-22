@@ -1,19 +1,12 @@
-import { Arrow, buttonVariants, Container, CopyEmail, MonoLabel } from "@/components/ui";
+import { Container, CopyEmail, MonoLabel } from "@/components/ui";
 import { siteConfig, type SiteConfig } from "@/config/site.config";
-import { cn, whatsappLink } from "@/lib/utils";
+import { ContactLinks } from "./ContactLinks";
 
 type ContactBandProps = { content?: SiteConfig["home"]["contact"]; id?: string };
 
 /** Oversized sign-off: headline, copyable email, WhatsApp / LinkedIn / GitHub. Used at the end of every page. */
 export function ContactBand({ content = siteConfig.home.contact, id = "contact" }: ContactBandProps) {
-  const { contact, person, messages, quote, ui } = siteConfig;
-  const links = [
-    ...(contact.whatsapp
-      ? [{ label: quote.whatsappLabel, href: whatsappLink(contact.whatsapp), variant: "primary" as const }]
-      : []),
-    { label: ui.linkedinLabel, href: person.linkedin, variant: "outline" as const },
-    { label: ui.githubLabel, href: person.github, variant: "outline" as const },
-  ];
+  const { contact, messages } = siteConfig;
 
   return (
     <section id={id} className="scroll-mt-24 border-t border-border">
@@ -38,21 +31,7 @@ export function ContactBand({ content = siteConfig.home.contact, id = "contact" 
               selectedToast: messages.emailSelected,
             }}
           />
-          <ul className="flex flex-wrap gap-3 max-tablet:w-full">
-            {links.map((link) => (
-              <li key={link.href} className="max-tablet:flex-1 max-tablet:basis-full">
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(buttonVariants({ variant: link.variant }), "max-tablet:w-full")}
-                >
-                  {link.label} <Arrow />
-                  <span className="sr-only">{ui.newTab}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <ContactLinks className="max-tablet:w-full" />
         </div>
       </Container>
     </section>

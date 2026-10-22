@@ -1,5 +1,7 @@
 "use server";
 
+import { siteConfig } from "@/config/site.config";
+
 export type ContactField = "name" | "email" | "message";
 
 export type ContactState = {
@@ -25,10 +27,11 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
     message: String(formData.get("message") ?? "").trim().slice(0, 5000),
   };
 
+  const messages = siteConfig.contact.form.errors;
   const errors: ContactState["errors"] = {};
-  if (!values.name) errors.name = "Please enter your name.";
-  if (!EMAIL.test(values.email)) errors.email = "Please enter a valid email address.";
-  if (values.message.length < 10) errors.message = "Please write a little more (10 characters or more).";
+  if (!values.name) errors.name = messages.name;
+  if (!EMAIL.test(values.email)) errors.email = messages.email;
+  if (values.message.length < 10) errors.message = messages.message;
   if (Object.keys(errors).length) return { status: "error", errors, values };
 
   // TODO: send `values` somewhere before launch.

@@ -7,6 +7,8 @@ const routes = [
   { path: "/work", priority: 0.9 },
   { path: "/services", priority: 0.9 },
   { path: "/graphic-design", priority: 0.7 },
+  { path: "/about", priority: 0.8 },
+  { path: "/contact", priority: 0.8 },
   ...siteConfig.projects
     .filter((project) => project.hasCaseStudy && project.status !== "coming-soon")
     .map((project) => ({ path: `/work/${project.slug}`, priority: 0.8 })),

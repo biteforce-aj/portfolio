@@ -144,7 +144,14 @@ export interface SiteConfig {
     /** Lightbox labels; `{alt}`, `{index}` and `{total}` are filled in. */
     lightbox: { view: string; open: string; previous: string; next: string; close: string; counter: string };
   };
-  about: { title: string; story: string[] };
+  about: {
+    title: string;
+    description: string;
+    story: string[];
+    experienceTitle: string;
+    educationTitle: string;
+    skillsTitle: string;
+  };
   experience: { role: string; org: string; location: string; period: string; points: string[] }[];
   education: { degree: string; school: string; year: string; detail: string }[];
   skills: { group: string; items: string[] }[];
@@ -224,6 +231,19 @@ export interface SiteConfig {
     address?: string;
     mapEmbedUrl?: string;
     hours?: { days: string; time: string }[];
+    /** Contact page meta description. */
+    description: string;
+    form: {
+      name: string;
+      email: string;
+      message: string;
+      submit: string;
+      sending: string;
+      errorSummary: string;
+      successTitle: string;
+      successText: string;
+      errors: { name: string; email: string; message: string };
+    };
   };
   socials: { platform: SocialPlatform; url: string }[];
   seo: {
@@ -546,6 +566,11 @@ export const siteConfig: SiteConfig = {
 
   about: {
     title: "About",
+    description:
+      "About Joshua Anderson, a UI/UX designer and front-end developer in Lagos: story, experience, education, skills and CV.",
+    experienceTitle: "Experience",
+    educationTitle: "Education",
+    skillsTitle: "Skills",
     story: [
       "I'm Joshua, a UI/UX designer and front-end developer based in Lagos. I studied Computer Science at the Federal University of Technology, Owerri, graduating with Second Class Upper in 2025. [How you got into design — 1–2 sentences.]",
       "I design in Figma and build with Next.js and Tailwind, so what clients approve is what goes live. Before and alongside design work, I've spent two years training and evaluating AI models for teams including Turing (on an NVIDIA project), Mercor and micro1 — work that taught me to look closely, follow detail, and think about how people actually use what I build.",
@@ -765,6 +790,23 @@ export const siteConfig: SiteConfig = {
     phone: "+234 906 167 4151",
     whatsapp: "+2349061674151",
     address: "Lagos, Nigeria · works remotely (West Africa Time)",
+    description:
+      "Contact Joshua Anderson, UI/UX designer and front-end developer in Lagos, by email, WhatsApp or the contact form.",
+    form: {
+      name: "Name",
+      email: "Email",
+      message: "Message",
+      submit: "Send message",
+      sending: "Sending…",
+      errorSummary: "Please fix the highlighted fields.",
+      successTitle: "Thanks, your message is on its way.",
+      successText: "I'll get back to you as soon as I can.",
+      errors: {
+        name: "Please enter your name.",
+        email: "Please enter a valid email address.",
+        message: "Please write a little more (10 characters or more).",
+      },
+    },
   },
 
   socials: [

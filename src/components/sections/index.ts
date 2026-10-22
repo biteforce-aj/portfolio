@@ -1,6 +1,7 @@
 export { AboutIntro } from "./AboutIntro";
 export { ContactBand } from "./ContactBand";
 export { ContactForm } from "./ContactForm";
+export { ContactLinks } from "./ContactLinks";
 export { CredentialStrip } from "./CredentialStrip";
 export { CTABand } from "./CTABand";
 export { FAQ } from "./FAQ";
@@ -15,8 +16,10 @@ export { ProcessSteps } from "./ProcessSteps";
 export { ProjectGrid } from "./ProjectGrid";
 export { QuoteBand } from "./QuoteBand";
 export { ServiceList } from "./ServiceList";
+export { SkillGroups } from "./SkillGroups";
 export { StatsRow } from "./StatsRow";
 export { StatusBar } from "./StatusBar";
 export { Testimonials } from "./Testimonials";
+export { Timeline, type TimelineItem } from "./Timeline";
 export { WhatsAppButton } from "./WhatsAppButton";
 export { WorkIndex } from "./WorkIndex";
