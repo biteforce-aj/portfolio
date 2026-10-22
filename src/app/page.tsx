@@ -1,36 +1,30 @@
 import {
-  ContactForm,
-  CTABand,
-  FAQ,
-  FeatureGrid,
+  AboutIntro,
+  ContactBand,
+  CredentialStrip,
   Footer,
-  Gallery,
   Hero,
-  LogoStrip,
   Navbar,
-  StatsRow,
-  Testimonials,
-  WhatsAppButton,
+  ServiceList,
+  StatusBar,
+  WorkIndex,
 } from "@/components/sections";
 
 // Home is composed only from sections; each reads its own slice of siteConfig.
 export default function Home() {
   return (
     <>
+      <StatusBar />
       <Navbar />
-      <main id="main" className="flex-1">
+      <main id="main" className="flex-1 overflow-x-clip">
         <Hero />
-        <LogoStrip />
-        <FeatureGrid />
-        <StatsRow />
-        <Gallery tone="surface" />
-        <Testimonials />
-        <FAQ />
-        <CTABand />
-        <ContactForm />
+        <CredentialStrip />
+        <WorkIndex />
+        <ServiceList />
+        <AboutIntro />
+        <ContactBand />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

@@ -2,18 +2,18 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const variants = {
-  primary: "bg-primary text-primary-foreground hover:bg-primary-hover",
+  primary: "bg-foreground text-background hover:bg-primary hover:text-primary-foreground",
   secondary: "bg-accent text-accent-foreground hover:bg-accent/70",
-  outline: "border border-border bg-background text-foreground hover:border-input hover:bg-surface",
-  ghost: "text-foreground hover:bg-surface",
+  outline: "border border-border text-foreground hover:border-foreground hover:bg-raised",
+  ghost: "text-foreground hover:bg-raised",
   /** For use on `bg-primary` surfaces, e.g. CTABand. */
   inverse:
     "bg-primary-foreground text-primary hover:bg-primary-foreground/90 focus-visible:outline-primary-foreground",
 };
 
 const sizes = {
-  sm: "h-9 px-3.5 text-sm",
-  md: "h-11 px-5 text-base",
+  sm: "h-9 px-4 text-sm",
+  md: "h-11 px-5.5 text-ui",
   lg: "h-13 px-7 text-lg",
   icon: "size-11",
 };
@@ -26,8 +26,10 @@ type StyleProps = { variant?: ButtonVariant; size?: ButtonSize; className?: stri
 /** Button classes, for elements that can't use <Button> directly. */
 export function buttonVariants({ variant = "primary", size = "md", className }: StyleProps = {}) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-md font-medium whitespace-nowrap transition-colors",
-    "disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-[1.15em] [&_svg]:shrink-0",
+    "inline-flex items-center justify-center gap-2.5 rounded-full font-medium whitespace-nowrap transition-colors",
+    "disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0 [&_svg:not(.arrow)]:size-[1.15em]",
+    // Arrow nudges up-right on hover (see ui/Arrow).
+    "[&_.arrow]:transition-transform [&_.arrow]:duration-300 hover:[&_.arrow]:translate-x-0.5 hover:[&_.arrow]:-translate-y-0.5",
     variants[variant],
     sizes[size],
     className,

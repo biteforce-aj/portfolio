@@ -82,7 +82,14 @@ export interface SiteConfig {
     credentials: { label: string; items: string[] };
     work: { label: string; title: string; more: Link };
     services: { label: string; title: string; text: string; more: Link };
-    about: { label: string; quote: string; text: string; facts: { label: string; value: string }[]; more: Link };
+    about: {
+      label: string;
+      quote: string;
+      text: string;
+      facts: { label: string; value: string }[];
+      more: Link;
+      cvLabel: string;
+    };
     contact: { label: string; title: string; titleAccent: string };
   };
   projects: Project[];
@@ -97,8 +104,55 @@ export interface SiteConfig {
   education: { degree: string; school: string; year: string; detail: string }[];
   skills: { group: string; items: string[] }[];
   graphics: ImageRef[];
-  messages: { comingSoon: string; emailCopied: string; emailSelected: string; copy: string; copied: string };
+  messages: {
+    comingSoon: string;
+    emailCopied: string;
+    emailSelected: string;
+    copy: string;
+    copied: string;
+    cvMissing: string;
+  };
   footer: { credit: string; backToTop: string };
+  /** Interface labels shared by several sections. */
+  ui: {
+    menu: string;
+    close: string;
+    scroll: string;
+    nowLabel: string;
+    newTab: string;
+    linkedinLabel: string;
+    githubLabel: string;
+  };
+  /** Copy inside the drawn mock screens (ui/mocks). */
+  mocks: {
+    wireframe: { labels: { nav: string; eyebrow: string; heading: string; buttons: string; image: string }; selection: string };
+    wmen: {
+      logo: string;
+      logoAccent: string;
+      logoTail: string;
+      logoSub: string;
+      nav: string[];
+      eyebrow: string;
+      heading: string;
+      headingAccent: string;
+      text: string;
+      primary: string;
+      secondary: string;
+      badge: string[];
+      partners: string[];
+    };
+    siteStarter: {
+      brand: string;
+      nav: string[];
+      cta: string;
+      eyebrow: string;
+      heading: string[];
+      text: string;
+      primary: string;
+      secondary: string;
+    };
+    soon: { title: string; label: string };
+  };
   features: {
     title: string;
     intro?: string;
@@ -226,6 +280,7 @@ export const siteConfig: SiteConfig = {
         { label: "Based in", value: "Lagos, Nigeria — working worldwide" },
       ],
       more: { label: "More about me", href: "/about" },
+      cvLabel: "Download CV",
     },
     contact: { label: "Contact", title: "Let's build something", titleAccent: "considered" },
   },
@@ -433,11 +488,61 @@ export const siteConfig: SiteConfig = {
     emailSelected: "Email selected. Press Ctrl+C to copy.",
     copy: "Copy",
     copied: "Copied",
+    cvMissing: "CV download coming soon.", // [Remove once public/cv/Joshua-Anderson-CV.pdf exists]
   },
 
   footer: {
     credit: "Designed in Figma · Built with Next.js",
     backToTop: "Back to top ↑",
+  },
+
+  ui: {
+    menu: "Menu",
+    close: "Close",
+    scroll: "Scroll ↓",
+    nowLabel: "Now:",
+    newTab: "(opens in a new tab)",
+    linkedinLabel: "LinkedIn",
+    githubLabel: "GitHub",
+  },
+
+  mocks: {
+    wireframe: {
+      labels: {
+        nav: "Nav / Logo",
+        eyebrow: "Hero / Eyebrow",
+        heading: "Hero / Heading — 36 / Medium",
+        buttons: "Button / Primary · Ghost",
+        image: "Image / Collage",
+      },
+      selection: "Heading · 278 × 72",
+    },
+    wmen: {
+      logo: "W",
+      logoAccent: "+",
+      logoTail: "MEN",
+      logoSub: "LEADING CHANGE",
+      nav: ["HOME", "ABOUT", "SERVICES"],
+      eyebrow: "OUR PARTNERS",
+      heading: "Change is never a",
+      headingAccent: "solo effort.",
+      text: "Behind every leader we train is a network of organisations who believe inclusive leadership transforms institutions and communities.",
+      primary: "See our work together",
+      secondary: "Become a partner",
+      badge: ["Stronger", "together"],
+      partners: ["MARCFORTÉ", "WILAN", "asido", "AGHeS", "BYC"],
+    },
+    siteStarter: {
+      brand: "Fieldnote Studio",
+      nav: ["Services", "Work", "About"],
+      cta: "Contact",
+      eyebrow: "FIELDNOTE STUDIO",
+      heading: ["A website that works", "as hard as you do"],
+      text: "We design and build fast, accessible websites that turn visitors into customers.",
+      primary: "Start a project →",
+      secondary: "See our work",
+    },
+    soon: { title: "Client under wraps", label: "Launching soon" },
   },
 
   features: {

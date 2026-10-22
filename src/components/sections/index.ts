@@ -1,4 +1,7 @@
+export { AboutIntro } from "./AboutIntro";
+export { ContactBand } from "./ContactBand";
 export { ContactForm } from "./ContactForm";
+export { CredentialStrip } from "./CredentialStrip";
 export { CTABand } from "./CTABand";
 export { FAQ } from "./FAQ";
 export { FeatureGrid } from "./FeatureGrid";
@@ -7,6 +10,9 @@ export { Gallery } from "./Gallery";
 export { Hero } from "./Hero";
 export { LogoStrip } from "./LogoStrip";
 export { Navbar } from "./Navbar";
+export { ServiceList } from "./ServiceList";
 export { StatsRow } from "./StatsRow";
+export { StatusBar } from "./StatusBar";
 export { Testimonials } from "./Testimonials";
 export { WhatsAppButton } from "./WhatsAppButton";
+export { WorkIndex } from "./WorkIndex";

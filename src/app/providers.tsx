@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
+import { ToastProvider } from "@/components/ui/Toast";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       // The portfolio is dark-only; tokens.css has no light palette.
       forcedTheme="dark"
     >
-      {children}
+      <ToastProvider>{children}</ToastProvider>
     </ThemeProvider>
   );
 }

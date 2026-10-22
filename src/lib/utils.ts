@@ -7,7 +7,7 @@ const twMerge = extendTailwindMerge({
     theme: {
       spacing: ["gutter", "section", "section-end"],
       container: ["content", "prose"],
-      text: ["micro", "label", "lead", "title", "email", "row", "quote", "section", "display", "display-xl"],
+      text: ["micro", "label", "lead", "title", "email", "row", "quote", "section", "display", "display-xl", "monogram", "ui"],
       radius: ["xs", "panel"],
     },
   },
