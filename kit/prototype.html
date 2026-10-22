@@ -536,7 +536,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;padding-block:2
     const keys = [[0, 52], [700, 70], [1500, 34], [2300, 52]]; const t0 = performance.now();
     const ease = x => x < .5 ? 2*x*x : 1 - Math.pow(-2*x + 2, 2) / 2;
     const step = now => {
-      if (touched) return; const t = now - t0; let i = keys.findIndex(k => k[0] > t); if (i === -1) { setPos(52); return; }
+      if (touched) return; const t = Math.max(0, now - t0); let i = keys.findIndex(k => k[0] > t); if (i === -1) { setPos(52); return; } if (i === 0) { requestAnimationFrame(step); return; }
       const [ta, pa] = keys[i-1], [tb, pb] = keys[i]; setPos(pa + (pb - pa) * ease((t - ta) / (tb - ta))); requestAnimationFrame(step);
     };
     requestAnimationFrame(step);

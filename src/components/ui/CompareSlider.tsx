@@ -72,9 +72,14 @@ export function CompareSlider({
       const start = performance.now();
       const step = (now: number) => {
         if (touched.current) return;
-        const t = now - start;
+        // rAF timestamps can be slightly earlier than `start`, so clamp at 0
+        const t = Math.max(0, now - start);
         const i = keys.findIndex(([at]) => at > t);
         if (i === -1) return setPos(initial);
+        if (i === 0) {
+          frame = requestAnimationFrame(step);
+          return;
+        }
         const [ta, pa] = keys[i - 1];
         const [tb, pb] = keys[i];
         setPos(pa + (pb - pa) * easeInOut((t - ta) / (tb - ta)));
