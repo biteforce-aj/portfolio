@@ -572,7 +572,7 @@ export const siteConfig: SiteConfig = {
     educationTitle: "Education",
     skillsTitle: "Skills",
     story: [
-      "I'm Joshua, a UI/UX designer and front-end developer based in Lagos. I studied Computer Science at the Federal University of Technology, Owerri, graduating with Second Class Upper in 2025. [How you got into design — 1–2 sentences.]",
+      "I'm Joshua, a UI/UX designer and front-end developer based in Lagos. I studied Computer Science at the Federal University of Technology, Owerri, graduating with Second Class Upper in 2025. I got into design by fixing things that annoyed me: confusing apps, slow websites, flyers nobody could read. Now I do it for a living.",
       "I design in Figma and build with Next.js and Tailwind, so what clients approve is what goes live. Before and alongside design work, I've been training and evaluating AI models since 2023 for teams including Turing (on an NVIDIA project), Mercor and micro1 — work that taught me to look closely, follow detail, and think about how people actually use what I build.",
       "[What you care about in your work — e.g. sites that load fast on mobile data, design that makes small organisations look as serious as they are.]",
     ],
