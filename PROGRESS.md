@@ -2,16 +2,15 @@
 Project: portfolio · Prompt file: kit/prompts/01-portfolio.md · Content: kit/prompts/portfolio-content.md · Design source: kit/prototype.html (no Figma)
 
 ## Done
-- Phase 1 Plan approved (defaults: name hero "Joshua *Anderson.*", keep prototype microcopy, cursor bubble on work rows/cards only, nav → routes)
-- Phase 2 Tokens + config: dark-only prototype palette, cobalt split into `primary` (fills) / `primary-text` (AA text), mock-screen colour group, named type scale; Geist / Instrument Serif / Geist Mono; all content in site.config.ts
-- Phase 3 Home: StatusBar, Navbar (+portalled MobileNav), Hero + CompareSlider, CredentialStrip, WorkIndex (hover preview/bubble, inline on phones), ServiceList, AboutIntro + Portrait ("JA" until `person.photo`), ContactBand + CopyEmail, Footer, Toast. Checked 360/768/1280
-- Phase 4 Work: /work with ProjectGrid → ProjectFilter (aria-pressed pills, live count) + ProjectCard (cover scales on hover, coming-soon = abstract cover + toast, no link) + CursorBubble (`data-cursor`); pointer-follow shared via lib/useFollowPointer
+- Phases 1–2: plan approved (name hero, keep prototype microcopy, bubble on rows/cards, nav → routes); dark tokens (`primary` fills / `primary-text` AA text, mock colours), Geist / Instrument Serif / Geist Mono, all content in site.config.ts
+- Phase 3 Home: status bar, nav + portalled mobile menu, hero CompareSlider, work index previews, services, Portrait ("JA" until `person.photo`), contact band, toast
+- Phase 4 /work: ProjectFilter + ProjectCard (coming-soon = abstract cover + toast) + CursorBubble; lib/useFollowPointer
+- Phase 5 /work/[slug]: @next/mdx, src/mdx-components.tsx, sections/case-study blocks; W+Men MDX with [bracket] TODOs, client credit in header
 
 ## Next
-- Phase 5 — Case study template + W+Men case study (MDX, ProcessStep, ImageFigure, FigmaLiveSlider, client credit)
+- Phase 6 — Graphic design gallery (accessible lightbox) + Services page (process steps, Get a quote)
 
 ## Known issues / decisions
-- Next 16 + Tailwind v4: tokens in `@theme`, fonts in src/styles/fonts.ts. cacheComponents on, so `new Date()` needs `"use cache"`. New spacing/container tokens go in cn()'s tailwind-merge config
-- Mock screens (ui/mocks) use `--u` = 100cqw/656 so they scale in pure CSS; MockScreen is server-only (reads config), pass it to client components as a node. Prefer `.scroll-reveal` (CSS view-timeline) over Reveal
-- Breakpoints `tablet` (821px) / `desktop` (1101px) mirror the prototype. Hidden browser pane pauses animations; finish them via JS before screenshots. contact.action.ts is a stub
-- Lighthouse: `prod` launch config serves `next start` on :3001; run `npx lighthouse@12` against it after `npm run build`
+- Next 16 + Tailwind v4 + cacheComponents (`new Date()` needs `"use cache"`); new tokens go in cn()'s tailwind-merge config. Breakpoints `tablet` 821px / `desktop` 1101px
+- MockScreen scales via `--u` = 100cqw/656 and is server-only; pass it to client components as a node. Prefer `.scroll-reveal` over Reveal. Hidden browser pane pauses animations
+- Unknown /work/[slug] in prod = soft 404 (200 + noindex); true 404 needs a proxy. contact.action.ts is a stub. Lighthouse: `prod` config on :3001

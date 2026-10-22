@@ -106,6 +106,21 @@ export interface SiteConfig {
     /** Live-region text after filtering; `{count}` and `{total}` are replaced. */
     results: string;
   };
+  /** Labels for the case study template (app/work/[slug]). */
+  caseStudy: {
+    label: string;
+    back: Link;
+    role: string;
+    year: string;
+    discipline: string;
+    links: string;
+    live: string;
+    figma: string;
+    repo: string;
+    credit: string;
+    next: string;
+    sliderCaption: string;
+  };
   services: { title: string; text: string; icon: string; tags: string }[];
   process: { step: string; text?: string }[];
   quote: { title: string; button: Link; whatsappLabel: string; whatsappMessage: string; priceFrom?: string };
@@ -389,6 +404,21 @@ export const siteConfig: SiteConfig = {
     filters: ["Web", "UI/UX", "Graphic design", "System"],
     tagsLabel: "Tags",
     results: "Showing {count} of {total} projects",
+  },
+
+  caseStudy: {
+    label: "Case study",
+    back: { label: "All work", href: "/work" },
+    role: "Role",
+    year: "Year",
+    discipline: "Discipline",
+    links: "Links",
+    live: "Live site",
+    figma: "Figma file",
+    repo: "GitHub",
+    credit: "Credit",
+    next: "Next project",
+    sliderCaption: "Figma frame and live site — drag the divider to compare.",
   },
 
   services: [
