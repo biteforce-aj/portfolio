@@ -331,7 +331,7 @@ export const siteConfig: SiteConfig = {
     workStyle: "Lagos, Nigeria — working worldwide",
     availability: "Available for freelance & full-time roles",
     availabilityShort: "Available for work",
-    now: "building site-starter v1",
+    now: "open to new projects",
     cvPath: "/cv/Joshua-Anderson-CV.pdf",
     // photo: { src: "/images/joshua.jpg", alt: "Portrait of Joshua Anderson", width: 1000, height: 1240 },
     linkedin: "https://www.linkedin.com/in/joshua-anderson-773844288",
