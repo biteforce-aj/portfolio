@@ -11,4 +11,4 @@ Project: portfolio · Prompt file: kit/prompts/01-portfolio.md · Content: kit/p
 ## Known issues / decisions
 - Next 16 + Tailwind v4 + cacheComponents (`new Date()` needs `"use cache"`); new tokens go in cn()'s tailwind-merge config. Breakpoints `tablet` 821px / `desktop` 1101px
 - MockScreen scales via `--u` = 100cqw/656 and is server-only; pass it to client components as a node. Prefer `.scroll-reveal` over Reveal. Hidden browser pane pauses animations
-- Unknown /work/[slug] in prod = soft 404 (200 + noindex); true 404 needs a proxy. contact.action.ts is a stub. Lighthouse: `prod` config on :3001. Process steps have no `text` yet. Live placeholder: W+Men ImageFigure caption (needs real desktop + mobile screenshots); testimonials quote/name are placeholders but not rendered
+- Unknown /work/[slug] in prod = soft 404 (200 + noindex); true 404 needs a proxy. contact.action.ts is a stub. Lighthouse: `prod` config on :3001. Process steps have no `text` yet. W+Men screenshots in public/images/work/wmen (WebP; ScreenshotGallery + `cover`). No live placeholders; testimonials quote/name are placeholders but not rendered

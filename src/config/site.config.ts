@@ -398,6 +398,12 @@ export const siteConfig: SiteConfig = {
       category: "Web design & build",
       year: "2025",
       tags: ["Web", "UI/UX"],
+      cover: {
+        src: "/images/work/wmen/01-home-hero.webp",
+        alt: "W+Men Leading Change home page on desktop: the mission statement over a photo of a team gathered round a laptop.",
+        width: 1600,
+        height: 763,
+      },
       preview: "wmen",
       status: "live",
       liveUrl: "https://www.wmenleadingchange.com",

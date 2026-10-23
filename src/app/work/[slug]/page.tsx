@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactBand, Footer, Navbar, StatusBar } from "@/components/sections";
@@ -123,6 +124,20 @@ async function CaseStudy({ project }: { project: Project }) {
             {project.credit && (
               <div className="mt-10">
                 <ClientCredit>{project.credit}</ClientCredit>
+              </div>
+            )}
+
+            {project.cover && (
+              <div className="mt-12 overflow-hidden rounded-panel border border-border bg-surface shadow-xl">
+                <Image
+                  src={project.cover.src}
+                  alt={project.cover.alt}
+                  width={project.cover.width}
+                  height={project.cover.height}
+                  sizes="(min-width: 1312px) 1312px, 100vw"
+                  preload
+                  className="h-auto w-full"
+                />
               </div>
             )}
           </Container>

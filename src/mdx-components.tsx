@@ -1,6 +1,12 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import { ClientCredit, FigmaLiveSlider, ImageFigure, ProcessStep } from "@/components/sections/case-study";
+import {
+  ClientCredit,
+  FigmaLiveSlider,
+  ImageFigure,
+  ProcessStep,
+  ScreenshotGallery,
+} from "@/components/sections/case-study";
 
 // Markdown elements inside case studies, styled to match the site, plus the case study blocks.
 const components: MDXComponents = {
@@ -33,6 +39,7 @@ const components: MDXComponents = {
     ),
   ProcessStep,
   ImageFigure,
+  ScreenshotGallery,
   FigmaLiveSlider,
   ClientCredit,
 };
