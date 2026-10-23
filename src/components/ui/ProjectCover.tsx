@@ -9,7 +9,14 @@ export function ProjectCover({ project, sizes, className }: ProjectCoverProps) {
   if (project.cover) {
     return (
       <div className={`relative aspect-[656/460] ${className ?? ""}`}>
-        <Image src={project.cover.src} alt="" fill sizes={sizes} className="object-cover" />
+        <Image
+          src={project.cover.src}
+          alt=""
+          fill
+          sizes={sizes}
+          className="object-cover"
+          style={{ objectPosition: project.cover.position }}
+        />
       </div>
     );
   }

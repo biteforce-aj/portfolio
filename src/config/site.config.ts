@@ -20,8 +20,8 @@ export interface Project {
   category: string;
   year: string;
   tags: ProjectTag[];
-  /** Real image cover; falls back to `preview` when absent. */
-  cover?: ImageRef;
+  /** Real image cover; falls back to `preview` when absent. `position` sets the card crop (CSS object-position). */
+  cover?: ImageRef & { position?: string };
   preview?: MockScreen;
   /** "coming-soon" projects show no client name, screenshot or link. */
   status: ProjectStatus;
@@ -403,6 +403,7 @@ export const siteConfig: SiteConfig = {
         alt: "W+Men Leading Change home page on desktop: the mission statement over a photo of a team gathered round a laptop.",
         width: 1600,
         height: 763,
+        position: "10% center", // keeps the client's logo in view on cards
       },
       preview: "wmen",
       status: "live",
