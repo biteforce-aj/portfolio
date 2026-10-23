@@ -1,24 +1,20 @@
-# Site Starter
+# Joshua Anderson — Portfolio
 
-A clean, accessible Next.js starter that every site template in this family is cloned from. Rebrand it by editing two files.
+Portfolio site for Joshua Anderson, a UI/UX designer and front-end developer in Lagos. It speaks to two audiences at once: freelance clients ("Need a website?" → Services) and employers ("Hiring? See my work" → Work).
 
-![Screenshot of the demo home page](docs/screenshot.png)
+![Screenshot of the home page](docs/screenshot.png)
 
-**Live demo:** https://site-starter-eta.vercel.app
-
-## Features
-- **Config-driven content**: every name, line of copy, image, link and contact detail lives in `src/config/site.config.ts`
-- **Design tokens**: colors, fonts, radius and spacing come only from `src/styles/tokens.css`, with light and dark themes
-- **Sections ready to compose**: Navbar (sticky, mobile menu with focus trap), Hero, LogoStrip, FeatureGrid, StatsRow, Gallery (lightbox), Testimonials, FAQ, CTABand, ContactForm, Footer, WhatsApp button
-- **UI kit**: Button, Card, Badge, Heading, Field, Input, Select, Textarea, Icon and more, previewed at `/styleguide`
-- **Theme toggle** that remembers each visitor's choice and defaults to the system setting
-- **Contact form** with client validation and a server action stub, ready for Resend or Formspree
-- **SEO**: metadata and Open Graph from config, `sitemap.xml`, `robots.txt`, custom 404
-- **Accessible**: semantic landmarks, skip link, visible focus, AA contrast in both themes, scroll reveal that turns off with reduced motion
-- **Fast**: Lighthouse 93+ mobile and 100 desktop for performance, 100 for accessibility, best practices and SEO; no layout shift
+## Pages
+- **Home**: name hero with a Figma ↔ live compare slider, featured work, services, short about, contact band
+- **Work** (`/work`): every project as a card, filterable by Web, UI/UX, Graphic design and System
+- **Case studies** (`/work/[slug]`): MDX pages with process steps, figures and the compare slider
+- **Graphic design** (`/graphic-design`): masonry gallery with an accessible lightbox
+- **Services** (`/services`): services, process steps and a "Get a quote" band (WhatsApp + form)
+- **About** (`/about`): story, experience and education timeline, grouped skills, CV download
+- **Contact** (`/contact`): form, email, WhatsApp, LinkedIn, GitHub and availability
 
 ## Stack
-Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · next-themes · lucide-react · Vercel
+Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS v4 · MDX · lucide-react · Vercel
 
 ## Getting started
 ```bash
@@ -27,17 +23,24 @@ npm run dev
 ```
 Open http://localhost:3000. Other scripts: `npm run lint`, `npm run build`, `npm run start`.
 
-## Customize in 3 steps
-1. **Tokens**: set your colors (light and dark), radius and spacing in `src/styles/tokens.css`, and swap fonts in `src/styles/fonts.ts`.
-2. **Config**: replace the demo business in `src/config/site.config.ts` (brand, nav, sections, contact, socials, SEO and `siteUrl`).
-3. **Images**: drop your files into `public/images/` (logo, hero, gallery, avatars, `og.jpg` at 1200×630) and point the config at them.
+## Editing content
+- **Copy, projects, services, experience, skills, links**: `src/config/site.config.ts`. Components never hardcode content.
+- **Case studies**: `src/content/work/<slug>.mdx`, then set `hasCaseStudy: true` on the project in the config.
+- **Images**: `public/images/` (gallery flyers in `public/images/graphics/`); the CV lives at `public/cv/`.
+- **Design tokens**: colours, type, radius, spacing and motion in `src/styles/tokens.css`; fonts in `src/styles/fonts.ts`.
+- **Share image**: generated from the config and tokens by `src/app/opengraph-image.tsx`.
 
-To deliver contact form messages, fill in the `TODO` in `src/components/sections/contact.action.ts`.
+Projects marked `status: "coming-soon"` show only a generic title and an abstract cover: no client name, screenshot or link until the client approves publication.
+
+## Accessibility and motion
+Semantic landmarks, skip link, visible focus, AA contrast, keyboard-operable slider, filters and lightbox. Scroll reveals, hover scaling, the cursor bubble and the slider nudge all switch off with `prefers-reduced-motion`.
+
+Lighthouse on a local production build: 100 accessibility, best practices and SEO; performance 99 on desktop and roughly 85–94 on mobile.
 
 ## Deploy
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/biteforce-aj/site-starter)
+Import the repo at [vercel.com/new](https://vercel.com/new); no settings are needed. Canonical URLs, the sitemap and share cards use Vercel's production URL automatically. For a custom domain, set `NEXT_PUBLIC_SITE_URL` (for example `https://your-domain.com`) in the project's environment variables and redeploy.
 
-Or import the repo at [vercel.com/new](https://vercel.com/new). No environment variables are needed until you connect an email service.
+The contact form's server action (`src/components/sections/contact.action.ts`) validates input but doesn't send mail yet. Fill in its `TODO` with Resend or Formspree to deliver messages.
 
 ## License
 MIT. See [LICENSE](LICENSE).

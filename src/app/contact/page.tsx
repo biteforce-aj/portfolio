@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm, Footer, Navbar, StatusBar } from "@/components/sections";
 import { siteConfig } from "@/config/site.config";
+import { baseOpenGraph } from "@/lib/metadata";
 
 const { contact } = siteConfig;
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: contact.title,
   description: contact.description,
   alternates: { canonical: "/contact" },
-  openGraph: { url: "/contact", title: contact.title, description: contact.description },
+  openGraph: { ...baseOpenGraph, url: "/contact", title: contact.title, description: contact.description },
 };
 
 export default function ContactPage() {

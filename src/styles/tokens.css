@@ -50,7 +50,7 @@
   --color-mock-wmen-lime: #8ed16b;
   --color-mock-wmen-mint: #cfe3da;
   --color-mock-wmen-cream: #f2ebdd;
-  --color-mock-wmen-ink: rgb(90 75 60 / 0.8);
+  --color-mock-wmen-ink: #6e6153; /* 5:1 on wmen-cream */
   --color-mock-photo-1a: #e6a46a;
   --color-mock-photo-1b: #6b3f27;
   --color-mock-photo-2a: #f3d3b1;

@@ -48,7 +48,7 @@ export function Portrait({ photo, initials, layerName, className }: PortraitProp
         aria-hidden="true"
         className="absolute -top-7 left-0 flex gap-3 rounded-xs bg-primary px-2 py-0.5 font-mono text-micro text-primary-foreground"
       >
-        {layerName} <b className="font-normal opacity-75">{`${FRAME.width} × ${FRAME.height}`}</b>
+        {layerName} <b className="font-normal">{`${FRAME.width} × ${FRAME.height}`}</b>
       </div>
       <div aria-hidden="true" className="absolute inset-y-0 -right-[26px] hidden w-px bg-primary tablet:block">
         <span className="absolute top-1/2 left-1.5 -translate-y-1/2 -rotate-90 font-mono text-micro text-primary-text">

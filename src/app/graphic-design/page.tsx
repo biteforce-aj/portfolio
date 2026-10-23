@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactBand, Footer, GalleryGrid, Navbar, StatusBar } from "@/components/sections";
 import { Container, MonoLabel } from "@/components/ui";
 import { siteConfig } from "@/config/site.config";
+import { baseOpenGraph } from "@/lib/metadata";
 import { pad } from "@/lib/projects";
 
 const { graphicDesign, graphics } = siteConfig;
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: graphicDesign.title,
   description: graphicDesign.description,
   alternates: { canonical: "/graphic-design" },
-  openGraph: { url: "/graphic-design", title: graphicDesign.title, description: graphicDesign.description },
+  openGraph: { ...baseOpenGraph, url: "/graphic-design", title: graphicDesign.title, description: graphicDesign.description },
 };
 
 export default function GraphicDesignPage() {

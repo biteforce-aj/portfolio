@@ -23,6 +23,8 @@ export function ServiceList({
   as: Title = "h2",
   className,
 }: ServiceListProps) {
+  // Keep heading levels sequential when the intro is the page's h1.
+  const ItemTitle = Title === "h1" ? "h2" : "h3";
   return (
     <section id={id} className={cn("scroll-mt-24 bg-surface pt-section pb-section-end", className)}>
       <Container className="grid items-start gap-12 desktop:grid-cols-[420px_minmax(0,1fr)] desktop:gap-24">
@@ -45,7 +47,7 @@ export function ServiceList({
             >
               <MonoLabel className="text-primary-text">({pad(index + 1)})</MonoLabel>
               <div>
-                <h3 className="mb-2 text-title font-medium tracking-snug">{service.title}</h3>
+                <ItemTitle className="mb-2 text-title font-medium tracking-snug">{service.title}</ItemTitle>
                 <p className="text-muted">{service.text}</p>
               </div>
               <MonoLabel className="tablet:text-right">{service.tags}</MonoLabel>

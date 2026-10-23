@@ -250,7 +250,7 @@ export interface SiteConfig {
     titleTemplate: string;
     defaultTitle: string;
     description: string;
-    ogImage: string;
+    /** The share image is generated from `person` by src/app/opengraph-image.tsx. */
     siteUrl: string;
     locale: string;
   };
@@ -818,8 +818,12 @@ export const siteConfig: SiteConfig = {
     defaultTitle: "Joshua Anderson — UI/UX Designer & Front-End Developer",
     description:
       "Joshua Anderson is a UI/UX designer and front-end developer in Lagos who designs and builds bold, fast websites — from Figma to live.",
-    ogImage: "/images/og.jpg",
-    siteUrl: "http://localhost:3000", // [Set to the live domain once deployed]
+    // Set NEXT_PUBLIC_SITE_URL for a custom domain; otherwise Vercel's production URL is used.
+    siteUrl:
+      process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : "http://localhost:3000"),
     locale: "en_NG",
   },
 };

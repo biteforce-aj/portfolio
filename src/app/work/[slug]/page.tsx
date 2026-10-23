@@ -5,6 +5,7 @@ import { ContactBand, Footer, Navbar, StatusBar } from "@/components/sections";
 import { ClientCredit } from "@/components/sections/case-study";
 import { Arrow, Container, MonoLabel, ProjectCard } from "@/components/ui";
 import { siteConfig, type Project } from "@/config/site.config";
+import { baseOpenGraph } from "@/lib/metadata";
 import { pad, projectLink } from "@/lib/projects";
 
 const { projects, caseStudy, ui } = siteConfig;
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
     title: project.title,
     description: project.summary,
     alternates: { canonical: path },
-    openGraph: { url: path, title: project.title, description: project.summary },
+    openGraph: { ...baseOpenGraph, url: path, title: project.title, description: project.summary },
   };
 }
 

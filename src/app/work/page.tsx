@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactBand, Footer, Navbar, ProjectGrid, StatusBar } from "@/components/sections";
 import { Container, MonoLabel } from "@/components/ui";
 import { siteConfig } from "@/config/site.config";
+import { baseOpenGraph } from "@/lib/metadata";
 import { pad } from "@/lib/projects";
 
 const { work, projects } = siteConfig;
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: work.title,
   description: work.description,
   alternates: { canonical: "/work" },
-  openGraph: { url: "/work", title: work.title, description: work.description },
+  openGraph: { ...baseOpenGraph, url: "/work", title: work.title, description: work.description },
 };
 
 export default function WorkPage() {

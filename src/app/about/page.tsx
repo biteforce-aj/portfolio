@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AboutIntro, ContactBand, Footer, Navbar, SkillGroups, StatusBar, Timeline } from "@/components/sections";
 import { siteConfig } from "@/config/site.config";
+import { baseOpenGraph } from "@/lib/metadata";
 
 const { about, experience, education } = siteConfig;
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: about.title,
   description: about.description,
   alternates: { canonical: "/about" },
-  openGraph: { url: "/about", title: about.title, description: about.description },
+  openGraph: { ...baseOpenGraph, url: "/about", title: about.title, description: about.description },
 };
 
 const experienceItems = experience.map((job) => ({

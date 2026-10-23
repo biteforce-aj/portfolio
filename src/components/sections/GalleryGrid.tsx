@@ -62,6 +62,8 @@ export function GalleryGrid({
                   width={item.width}
                   height={item.height}
                   sizes="(min-width: 1101px) 33vw, (min-width: 480px) 50vw, 100vw"
+                  preload={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
                   className="h-auto w-full transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
                 />
               </button>

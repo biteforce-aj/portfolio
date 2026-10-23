@@ -13,7 +13,7 @@ export function Hero({ content = siteConfig.hero, person = siteConfig.person }: 
     <section id="hero" className="relative">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-[180px] bottom-10 size-[460px] rounded-full bg-primary opacity-16 blur-[140px] desktop:top-10 desktop:-right-[120px] desktop:bottom-auto desktop:h-[520px] desktop:w-[760px] desktop:opacity-20"
+        className="pointer-events-none absolute -right-[180px] bottom-10 size-[460px] rounded-full bg-primary opacity-16 blur-[140px] desktop:top-10 desktop:-right-[120px] desktop:bottom-auto desktop:h-[520px] desktop:w-[760px] desktop:opacity-16"
       />
       <Container className="relative grid items-center gap-12 pt-12 pb-18 desktop:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] desktop:gap-14 desktop:pt-18 desktop:pb-24">
         <div>
